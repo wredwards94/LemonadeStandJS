@@ -2,16 +2,22 @@
   "name": "lemonadestandjs",
   "version": "1.0.0",
   "description": "CookSys Lemonade Stand Application",
-  "main": "index.js",
+  "main": "build/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel ./src -d ./build"
+    "build": "babel ./src -d ./build",
+    "prestart": "npm run build",
+    "start": "nodemon --exec babel-node src/index.js"
   },
   "author": "Wesley Edwards",
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.23.0",
     "@babel/core": "^7.23.0",
-    "@babel/preset-env": "^7.22.20"
+    "@babel/node": "^7.22.19",
+    "@babel/preset-env": "^7.22.20",
+    "nodemon": "^3.0.1"
+  },
+  "dependencies": {
+    "vorpal": "^1.12.0"
   }
 }
